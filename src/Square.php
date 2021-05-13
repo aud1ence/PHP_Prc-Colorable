@@ -21,4 +21,12 @@ class Square extends Rectangle implements Colorable
     {
         return "Color all four sides";
     }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }

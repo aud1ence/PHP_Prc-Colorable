@@ -1,19 +1,23 @@
 <?php
 require __DIR__ . "/vendor/autoload.php";
-
 use Src\Square;
 use Src\Rectangle;
 
-$square = new Square("Square", 10);
-//echo $square->howToColor();
-//echo "<br>";
-
-$rectangle = new Rectangle("Rectangle", 20, 30);
-//echo $rectangle->howToColor();
-//echo "<br>";
-
-$arr[0] = $square->getInfo();
-$arr[1] = $rectangle->getInfo();
+$squares = [];
+array_push($squares, $square = new Square("Square", 10));
+array_push($squares, $square1 = new Square("Square1", 50));
+array_push($squares, $square2 = new Square("Square2", 60));
+array_push($squares, $square3 = new Square("Square3", 70));
+array_push($squares, $square4 = new Square("Square4", 80));
+array_push($squares, $square5 = new Square("Square5", 90));
+array_push($squares, $rectangle = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle1 = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle2 = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle3 = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle4 = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle5 = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle6 = new Rectangle("Rectangle", 20, 30));
+array_push($squares, $rectangle7 = new Rectangle("Rectangle", 20, 30));
 ?>
 
 <!doctype html>
@@ -44,15 +48,16 @@ $arr[1] = $rectangle->getInfo();
         <th>Area</th>
         <th>Colorable</th>
     </tr>
-    <?php foreach ($arr as $index => $value): ?>
+    <?php foreach ($squares as $key => $value): ?>
         <tr>
-            <td><?php echo $index + 1; ?></td>
-            <?php foreach ($value as $key): ?>
-
-            <td><?php echo $key; ?></td>
-            <?php endforeach; ?>
+            <td><?php echo $key + 1; ?></td>
+            <td><?php echo $value->getName() ?></td>
+            <td><?php if ($value instanceof Square) {
+                    echo $value->howToColor();
+                }
+                ?></td>
+            <td><?php echo $value->calculateArea() ?></td>
         </tr>
-
     <?php endforeach; ?>
 </table>
 </body>

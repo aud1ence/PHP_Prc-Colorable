@@ -24,10 +24,11 @@ class Rectangle extends Shape implements Colorable
         return "This is child of Shape";
     }
 
-    public function getInfo(): array
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
-        return array($this->name,
-            $this->calculateArea(),
-            $this->howToColor());
+        return $this->name;
     }
 }
